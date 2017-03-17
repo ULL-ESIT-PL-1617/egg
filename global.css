@@ -1,0 +1,62 @@
+html *
+{
+    th {background-color: thistle; border: black solid 1px; text-align: left;
+        padding-left: 10px; padding-right: 10px; vertical-align: top;}
+    td {background-color: white; border: black solid 1pt; padding-left: 10px;
+        padding-right: 10px; vertical-align: top;}
+    table {width: 90%; border: 0px; cellpadding: 0px;}
+}
+#INPUT 
+{
+    border: none; 
+    color: black;
+    font-family: monospace;
+    height: 1in;
+    overflow: auto;
+    /* padding: 0.5em; */
+    width: 80%;
+    background-color: #66FFCC; 
+}
+body { background-color: #99FFFF; }
+#OUTPUT 
+{
+    background-color: #66FFCC; 
+    width: 80%;
+}
+
+
+a {
+  font-size: x-large;
+  text-decoration:none;
+}
+
+a:link { color:#00FFFF; }
+a:visited { color:black; }
+a:hover{ 
+  background-color:black; 
+  color: #FFF;
+}
+a:active {color:#0000FF;}  /* selected link */
+
+
+
+nav {
+    text-align: center;
+}
+
+nav li {
+    list-style: none;
+    display: inline;
+    margin: 0 1em;
+}
+
+.mylink {
+  background-color: #66FFCC;
+  -moz-border-radius: 15px;
+  -webkit-border-radius: 15px;
+  border: 5px solid #009900;
+  padding: 5px;
+}
+
+/* Supress borders after the button is pressed */
+#PARSE:focus {outline:0; }
