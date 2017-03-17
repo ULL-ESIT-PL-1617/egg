@@ -11,7 +11,7 @@ var example1 = `
 console.log(parse(example1));
 run(example1);
 
-run(`
+var example2 = `
       do(define(sum, fun(array,
          do(define(i, 0),
             define(sum, 0),
@@ -20,16 +20,18 @@ run(`
                  define(i, +(i, 1)))),
             sum))),
        print(sum(array(1, 2, 3))))
-`);
+`;
+run(example2);
 
-run(`
+var example3 = `
   do(
       define(tutu, fun(val, 
         define(val, *(val,8))
       )),
       print(tutu(4))
     )  
-`);
+`;
+run(example3);
 };
 
 window.onload = main;
