@@ -9,3 +9,17 @@
 * [NodeJS Debugger Documentation](https://nodejs.org/api/debugger.html)
   - [V8 Inspector Integration for Node.js](https://nodejs.org/api/debugger.html#debugger_v8_inspector_integration_for_node_js)
     - V8 Inspector integration allows attaching Chrome DevTools to Node.js instances for debugging and profiling. NOTE: This is an experimental feature.
+
+
+### Grammar
+
+```yacc
+
+expression: string 
+          | number 
+          | word apply 
+
+apply: /* vacio */
+     | '(' expression (',' expression)* ')'
+```
+
