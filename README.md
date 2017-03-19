@@ -13,7 +13,7 @@
 
 ### Grammar
 
-```yacc
+```Yacc
 
 expression: string 
           | number 
