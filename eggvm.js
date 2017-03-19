@@ -1,4 +1,4 @@
-var parse = require('egg');
+var parse = require('parse');
 
 function evaluate(expr, env) {
   switch(expr.type) {
