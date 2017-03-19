@@ -15,11 +15,11 @@
 
 ```Yacc
 
-expression: string 
-          | number 
-          | word apply 
+expression: STRING 
+          | NUMBER 
+          | WORD apply 
 
 apply: /* vacio */
-     | '(' expression (',' expression)* ')'
+     | '(' expression (',' expression)* ')' apply
 ```
 
