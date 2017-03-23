@@ -82,7 +82,3 @@ describe("parse", function() {
   })
 })
 
-// FIXME: 测试闭包特性
-//do(define(f, fun(a, fun(b, +(a, b)))),
-//   print(f(4)(5)))
-
