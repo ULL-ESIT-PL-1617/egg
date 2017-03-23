@@ -21,5 +21,11 @@ expression: STRING
 
 apply: /* vacio */
      | '(' expression (',' expression)* ')' apply
+
+
+STRING: /"([^"]*)"/
+NUMBER: /\d+\b/
+WORD:   /[^\s(),"]+/
+WHITES: /(\s|#.*)*/
 ```
 
