@@ -54,4 +54,9 @@ function parse(program) {
   return result.expr;
 }
 
-module.exports = parse;
+module.exports = {
+  skipSpace: skipSpace,
+  parseExpression: parseExpression,
+  parseApply: parseApply,
+  parse: parse
+};

@@ -1,4 +1,4 @@
-var parse = require('parse');
+var parse = require('parse').parse;
 var u = `
       do(define(sum, fun(array,
          do(define(i, 0),

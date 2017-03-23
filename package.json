@@ -4,7 +4,7 @@
   "description": "* [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html) * [Deploy at GitHub](https://ULL-ESIT-PL-1617.github.io/egg)",
   "main": "egg.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/mocha/bin/mocha --require should"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/ULL-ESIT-PL-1617/egg#readme",
   "dependencies": {
+    "mocha": "*",
+    "should": "*",
     "gulp-shell": "^0.6.3"
   }
 }

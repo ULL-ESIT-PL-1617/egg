@@ -1,4 +1,4 @@
-var parse = require('parse');
+var parse = require('parse').parse;
 
 function evaluate(expr, env) {
   switch(expr.type) {
