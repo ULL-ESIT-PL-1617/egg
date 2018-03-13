@@ -147,10 +147,10 @@ topEnv["element"] = function(array, n) {
   return array[n];
 };
 
-function run() {
+function run(program) {
+  debugger;
   var env = Object.create(topEnv);
-  var program = Array.prototype.slice.call(arguments, 0).join('\n');
   return evaluate(parse(program), env);
 }
 
-module.exports = run;
+module.exports = {run};

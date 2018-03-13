@@ -23,10 +23,37 @@ apply: /* vacio */
      | '(' expression (',' expression)* ')' apply
 
 
+WHITES: /(\s|#.*)*/
 STRING: /"([^"]*)"/
 NUMBER: /\d+\b/
 WORD:   /[^\s(),"]+/
-WHITES: /(\s|#.*)*/
+```
+
+### AST
+
+* Expressions of type "value" represent literal strings or numbers. 
+Their value property contains the string or number value that they represent.
+
+* Expressions of type "word" are used for identifiers (names). Such objects have a name property that holds the identifier’s name as a string. 
+* Finally, "apply" expressions represent applications. They have an operator property that refers to the expression that is being applied, and an args property that holds an array of argument expressions.
+
+```
+ast: VALUE{value: String | Number}
+   | WORD{name: String}
+   | APPLY{operator: ast, args: [ ast ...]}
+```
+
+The >(x, 5) part of the previous program would be represented like this:
+
+```
+{
+  type: "apply",
+  operator: {type: "word", name: ">"},
+  args: [
+    {type: "word", name: "x"},
+    {type: "value", value: 5}
+  ]
+}
 ```
 
 ### Testing
