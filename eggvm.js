@@ -165,7 +165,7 @@ function runFromFile(fileName) {
     return run(program);
   }
   catch (err) {
-    console.log(`Can't open ${fileName}`)
+    console.log(err);
   }
 }
 
