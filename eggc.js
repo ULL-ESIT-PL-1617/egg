@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var {runFromFile}  = require('eggvm');
 
 const fileName = process.argv.slice(2).shift();
