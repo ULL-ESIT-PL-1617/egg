@@ -2,7 +2,7 @@ let insp = require("util").inspect;
 let ins = (x) => insp(x, {depth:null});
 let fs = require("fs");
 
-let parse = require('parse').parse;
+let parse = require('./parse.js').parse;
 
 function evaluate(expr, env) {
   switch(expr.type) {
