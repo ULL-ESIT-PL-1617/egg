@@ -1,4 +1,8 @@
-var parse = require('parse').parse;
+let insp = require("util").inspect;
+let ins = (x) => insp(x, {depth:null});
+let fs = require("fs");
+
+let parse = require('parse').parse;
 
 function evaluate(expr, env) {
   switch(expr.type) {
@@ -17,7 +21,7 @@ function evaluate(expr, env) {
         return specialForms[expr.operator.name](expr.args, env);
       }
 
-      var op = evaluate(expr.operator, env);
+      let op = evaluate(expr.operator, env);
       if (typeof op != "function") {
         throw new TypeError('Applying a non-function');
       }
@@ -28,7 +32,7 @@ function evaluate(expr, env) {
   }
 }
 
-var specialForms = Object.create(null);
+let specialForms = Object.create(null);
 
 specialForms['if'] = function(args, env) {
   if (args.length != 3) {
@@ -55,7 +59,7 @@ specialForms['while'] = function(args, env) {
 };
 
 specialForms['do'] = function(args, env) {
-  var value = false;
+  let value = false;
 
   args.forEach(function(arg) {
     value = evaluate(arg, env);
@@ -69,7 +73,7 @@ specialForms['define'] = function(args, env) {
     throw new SyntaxError('Bad use of define');
   }
 
-  var value = evaluate(args[1], env);
+  let value = evaluate(args[1], env);
   env[args[0].name] = value;
   return value;
 };
@@ -87,16 +91,16 @@ specialForms['fun'] = function(args, env) {
     return expr.name;
   }
 
-  var argNames = args.slice(0, args.length - 1).map(name);
-  var body = args[args.length - 1];
+  let argNames = args.slice(0, args.length - 1).map(name);
+  let body = args[args.length - 1];
 
   return function() {
     if (arguments.length != argNames.length) {
       throw new TypeError('Wrong number of arguments');
     }
 
-    var localEnv = Object.create(env);
-    for (var i = 0; i < arguments.length; i++) {
+    let localEnv = Object.create(env);
+    for (let i = 0; i < arguments.length; i++) {
       localEnv[argNames[i]] = arguments[i];
     }
 
@@ -109,8 +113,8 @@ specialForms["set"] = function(args, env) {
     throw new SyntaxError('Bad use of set');
   }
 
-  var valName = args[0].name;
-  var value = evaluate(args[1], env);
+  let valName = args[0].name;
+  let value = evaluate(args[1], env);
   for (let scope = env; scope; scope = Object.getPrototypeOf(scope)) {
     if (Object.prototype.hasOwnProperty.call(scope, valName)) {
       scope[valName] = value;
@@ -121,7 +125,7 @@ specialForms["set"] = function(args, env) {
 };
 
 
-var topEnv = Object.create(null);
+let topEnv = Object.create(null);
 topEnv['true'] = true;
 topEnv['false'] = false;
 
@@ -134,8 +138,7 @@ topEnv['print'] = function(value) {
   return value;
 };
 
-topEnv["array"] = function() {
-  var args = Array.prototype.slice.call(arguments, 0);
+topEnv["array"] = function(...args) {
   return args;
 };
 
@@ -148,9 +151,22 @@ topEnv["element"] = function(array, n) {
 };
 
 function run(program) {
+  let env = Object.create(topEnv);
+  let tree = parse(program);
+  // console.log(program);
+  // console.log(ins(tree));
   debugger;
-  var env = Object.create(topEnv);
-  return evaluate(parse(program), env);
+  return evaluate(tree, env);
 }
 
-module.exports = {run};
+function runFromFile(fileName) {
+  try {
+    let program = fs.readFileSync(fileName, 'utf8');
+    return run(program);
+  }
+  catch (err) {
+    console.log(`Can't open ${fileName}`)
+  }
+}
+
+module.exports = {run, runFromFile};
