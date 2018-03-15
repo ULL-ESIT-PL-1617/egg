@@ -3,6 +3,7 @@ const STRING = /^\s*"([^"]*)"\s*/;
 const NUMBER = /^\s*(\d+)\b\s*/;
 const WORD   = /^\s*([^\s(),"]+)\s*/;
 const LP     = /^\s*([(])\s*/;
+const RP     = /^\s*([)])\s*/;
 
 function parseExpression(program) {
   //program = skipSpace(program);
@@ -26,7 +27,7 @@ function skipSpace(string) {
 }
 
 function parseApply(expr, program) {
-  //program = skipSpace(program);
+  program = skipSpace(program);
 
   if (!(match = LP.exec(program))) { // no apply
     return {expr: expr, rest: program};
