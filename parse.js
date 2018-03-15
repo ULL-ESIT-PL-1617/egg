@@ -1,13 +1,19 @@
+const WHITES = /^(\s|#.*)*/;
+const STRING = /^\s*"([^"]*)"\s*/;
+const NUMBER = /^\s*(\d+)\b\s*/;
+const WORD   = /^\s*([^\s(),"]+)\s*/;
+const LP     = /^\s*([(])\s*/;
+
 function parseExpression(program) {
   program = skipSpace(program);
   var match, expr;
 
-  if (match = /^"([^"]*)"/.exec(program)) {
+  if (match = STRING.exec(program)) {
     expr = {type: "value", value: match[1]};
-  } else if (match = /^\d+\b/.exec(program)) {
-    expr = {type: "value", value: Number(match[0])};
-  } else if (match = /^[^\s(),"]+/.exec(program)) {
-    expr = {type: "word", name: match[0]};
+  } else if (match = NUMBER.exec(program)) {
+    expr = {type: "value", value: Number(match[1])};
+  } else if (match = WORD.exec(program)) {
+    expr = {type: "word", name: match[1]};
   } else {
     throw new SyntaxError(`Unexpect syntax: ${program}`);
   }
@@ -16,17 +22,17 @@ function parseExpression(program) {
 }
 
 function skipSpace(string) {
-  return string.slice(/^(\s|#.*)*/.exec(string)[0].length);
+  return string.slice(WHITES.exec(string)[0].length);
 }
 
 function parseApply(expr, program) {
   program = skipSpace(program);
 
-  if (program[0] != '(') {
+  if (!(match = LP.exec(program))) { // no apply
     return {expr: expr, rest: program};
   }
 
-  program = skipSpace(program.slice(1));
+  program = skipSpace(program.slice(match[0].length));
   expr = {type: 'apply', operator: expr, args: []};
 
   while (program[0] != ')') {
