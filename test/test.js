@@ -8,22 +8,22 @@ describe("skipSpace", function() {
 
 describe("parse", function() {
   it("should parse numbers and leave rest", function() {
-    var value = { expr: { type: 'value', value: 1 }, rest: '1' };
+    var value = { expr: { type: 'value', value: 1 }, program: '1' };
     parser.parseExpression('1 1').should.eql(value);
   })
   it("should parse strings and leave rest", function() {
-    var value = { expr: { type: 'value', value: 's' }, rest: ', ,' };
+    var value = { expr: { type: 'value', value: 's' }, program: ', ,' };
     parser.parseExpression('"s", ,').should.eql(value);
   })
   it("should parse word not followed by '('", function() {
-    var value = { expr: { type: 'word', name: 'word' }, rest: ',' };
+    var value = { expr: { type: 'word', name: 'word' }, program: ',' };
     parser.parseExpression('word ,').should.eql(value);
   })
   it("should parse apply if word followed by '('", function() {
     var value = { expr: { type: 'apply',
       operator: { type: 'word', name: 'word' },
     args: [ { type: 'word', name: 'a' } ] },
-    rest: 'r ' }
+    program: 'r ' }
     parser.parseExpression('word ( a ) r ').should.eql(value);
   })
   it("should parse apply with multiple arguments", function() {
@@ -34,7 +34,7 @@ describe("parse", function() {
           args:  [ { type: 'word', name: 'a' },
             { type: 'word', name: 'b' },
             { type: 'word', name: 'c' } ] },
-        rest: '' }
+        program: '' }
     parser.parseExpression('word (a, b, c)').should.eql(value);
   })
   it("should parse apply with no args", function() {
@@ -43,7 +43,7 @@ describe("parse", function() {
         { type: 'apply',
           operator: { type: 'word', name: 'word' },
           args: [] },
-      rest: '' }
+      program: '' }
     parser.parseExpression('word ( )').should.eql(value);
   })
   it("should apply can be chain", function() {
@@ -57,7 +57,7 @@ describe("parse", function() {
             },
             args: [ { type: 'word', name: 'c' }, { type: 'word', name: 'd' } ]
           },
-          rest: '' };
+          program: '' };
     parser.parseExpression('word (a , b ) (c, d)').should.eql(value);
   })
   it("should have syntax error if not valid", function() {

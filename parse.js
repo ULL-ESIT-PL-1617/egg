@@ -6,8 +6,11 @@ const LP     = /^\s*([(])\s*/;
 const RP     = /^\s*([)])\s*/;
 const COMMA  = /^\s*(,)\s*/;
 
+function skipSpace(string) {
+  return string.slice(WHITES.exec(string)[0].length);
+}
+
 function parseExpression(program) {
-  //program = skipSpace(program);
   var match, expr;
 
   if (match = STRING.exec(program)) {
@@ -23,26 +26,21 @@ function parseExpression(program) {
   return parseApply(expr, program.slice(match[0].length));
 }
 
-function skipSpace(string) {
-  return string.slice(WHITES.exec(string)[0].length);
-}
 
-function parseApply(expr, program) {
+function parseApply(tree, program) {
   var match, rpmatch;
-  //program = skipSpace(program);
 
   if (!(match = LP.exec(program))) { // no apply
-    return {expr: expr, rest: program};
+    return {expr: tree, program: program};
   }
 
-  //program = skipSpace(program.slice(match[0].length));
-  program = (program.slice(match[0].length));
-  expr = {type: 'apply', operator: expr, args: []};
+  program = program.slice(match[0].length);
+  tree = {type: 'apply', operator: tree, args: []};
 
   while (!(rpmatch = RP.exec(program))) {
     var arg = parseExpression(program);
-    expr.args.push(arg.expr);
-    program = arg.rest;
+    tree.args.push(arg.expr);
+    program = arg.program;
 
     if (match = COMMA.exec(program)) {
       program = (program.slice(match[0].length));
@@ -51,14 +49,13 @@ function parseApply(expr, program) {
     }
   }
 
-  return parseApply(expr, program.slice(rpmatch[0].length));
+  return parseApply(tree, program.slice(rpmatch[0].length));
 }
 
 function parse(program) {
   var result = parseExpression(program);
 
-  if (skipSpace(result.rest).length > 0) {
-  //if ((result.rest).length > 0) {
+  if (skipSpace(result.program).length > 0) {
     throw new SyntaxError('Unexpected text after program');
   }
 
