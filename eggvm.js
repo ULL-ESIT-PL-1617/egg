@@ -125,7 +125,7 @@ specialForms["set"] = function(args, env) {
 };
 
 
-let topEnv = Object.create(null);
+let topEnv = new Map;
 topEnv['true'] = true;
 topEnv['false'] = false;
 
