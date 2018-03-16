@@ -32,7 +32,7 @@ function evaluate(expr, env) {
   }
 }
 
-let specialForms = Object.create(null);
+let specialForms = new Map;
 
 specialForms['if'] = function(args, env) {
   if (args.length != 3) {
@@ -68,7 +68,7 @@ specialForms['do'] = function(args, env) {
   return value;
 };
 
-specialForms['define'] = function(args, env) {
+specialForms['def'] =specialForms['define'] = function(args, env) {
   if (args.length != 2 || args[0].type != 'word') {
     throw new SyntaxError('Bad use of define');
   }
@@ -78,7 +78,7 @@ specialForms['define'] = function(args, env) {
   return value;
 };
 
-specialForms['fun'] = function(args, env) {
+specialForms['->'] =specialForms['fun'] = function(args, env) {
   if (!args.length) {
     throw new SyntaxError('Functions need a body.')
   }
@@ -146,7 +146,7 @@ topEnv["length"] = function(array) {
   return array.length;
 };
 
-topEnv["element"] = function(array, n) {
+topEnv["[]"] =topEnv["element"] = function(array, n) {
   return array[n];
 };
 

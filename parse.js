@@ -106,7 +106,7 @@ function parse(p) {
   setProgram(p);
   lex();
   var result = parseExpression();
-  //console.log("result = ",inspect(result, {depth: null}));
+  console.log("result = ",inspect(result, {depth: null}));
 
   return result;
 }

@@ -1,7 +1,7 @@
 do(
-  define(x, -4.5),
-  define(y, 4e2),
-  define(z, +(x, y)),
+  def(x, -4.5),
+  def(y, 4e2),
+  def(z, +(x, y)),
   print(z) /* 395.5 */
 )
 
