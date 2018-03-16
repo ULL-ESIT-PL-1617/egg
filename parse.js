@@ -13,6 +13,17 @@ let program;
 let lookahead;
 let lineno = 1;
 
+let setProgram = function(prg) {
+  program = prg;
+  lineno = 1;
+  return {program, lineno}
+};
+
+let getProgram = function() {
+  return {program, lineno}
+};
+
+
 function lex() {
     let match;
 
@@ -49,6 +60,7 @@ function lex() {
 function parseExpression() {
   var expr;
 
+  debugger;
   if (lookahead.type == "STRING") {
     expr = {type: "value", value: lookahead.value};
   } else if (lookahead.type == "NUMBER") {
@@ -78,7 +90,6 @@ function parseApply(tree) {
     var arg = parseExpression();
     tree.args.push(arg);
 
-    if (!lookahead)  debugger;
     if (lookahead && lookahead.type == "COMMA") {
       lex();
     } else if (!lookahead || lookahead.type !== "RP") {
@@ -92,7 +103,7 @@ function parseApply(tree) {
 }
 
 function parse(p) {
-  program = p;
+  setProgram(p);
   lex();
   var result = parseExpression();
   //console.log("result = ",inspect(result, {depth: null}));
@@ -101,6 +112,9 @@ function parse(p) {
 }
 
 module.exports = {
+  setProgram,
+  getProgram,
+  lex,
   parseExpression,
   parseApply,
   parse
