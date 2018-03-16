@@ -1,3 +1,4 @@
+var should = require("should");
 var parser = require('../parse.js');
 
 /*
@@ -6,27 +7,38 @@ describe("skipSpace", function() {
     parser.skipSpace("  \t\n a").should.equal('a');
   })
 });
+*/
 
 describe("parse", function() {
   it("should parse numbers and leave rest", function() {
-    var value = { expr: { type: 'value', value: 1 }};
-    parser.parseExpression('1 1').should.eql(value);
+    var value = { type: 'value', value: 1 };
+    parser.setProgram('1');
+    parser.lex();
+    parser.parseExpression().should.eql(value);
   })
-  it("should parse strings and leave rest", function() {
-    var value = { expr: { type: 'value', value: 's' }};
-    parser.parseExpression('"s", ,').should.eql(value);
+  it("should parse strings", function() {
+    parser.setProgram('"s"');
+    parser.lex();
+    var value = { type: 'value', value: 's' }
+    parser.parseExpression('"s"').should.eql(value);
   })
   it("should parse word not followed by '('", function() {
-    var value = { expr: { type: 'word', name: 'word' }};
-    parser.parseExpression('word ,').should.eql(value);
+    parser.setProgram('word');
+    parser.lex();
+    var value = { type: 'word', name: 'word' };
+    parser.parseExpression('word').should.eql(value);
   })
   it("should parse apply if word followed by '('", function() {
-    var value = { expr: { type: 'apply',
+    parser.setProgram('word(a)');
+    parser.lex();
+    var value = { 
+      type: 'apply',
       operator: { type: 'word', name: 'word' },
-    args: [ { type: 'word', name: 'a' } ] },
-    program: 'r ' }
+      args: [ { type: 'word', name: 'a' } ] 
+    };
     parser.parseExpression('word ( a ) r ').should.eql(value);
   })
+  /*
   it("should parse apply with multiple arguments", function() {
     var value = 
       { expr: 
@@ -81,6 +93,6 @@ describe("parse", function() {
         args: [ { type: 'word', name: 'a' }, { type: 'word', name: 'b' } ] }
     parser.parse("+(a,b)").should.eql(value);
   })
+  */
 })
 
-*/
