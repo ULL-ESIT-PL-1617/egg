@@ -1,0 +1,10 @@
+do(
+  define(x, 4 , # <- missed parenthesis error
+  define(setx, fun(val, 
+      set(x, val)
+    )
+  ),
+  setx(50),
+  print(x)
+)
+
