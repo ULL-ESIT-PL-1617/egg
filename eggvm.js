@@ -26,9 +26,7 @@ function evaluate(expr, env) {
         throw new TypeError('Applying a non-function');
       }
 
-      return op.apply(null, expr.args.map(function(arg) {
-        return evaluate(arg, env);
-      }));
+      return op(...expr.args.map((arg) => evaluate(arg, env)));
   }
 }
 
