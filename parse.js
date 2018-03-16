@@ -1,8 +1,8 @@
 const inspect = require("util").inspect;
 
-const WHITES = /^(\s|#.*)*/;
-const STRING = /^"([^"]*)"/;
-const NUMBER = /^(\d+)\b/;
+const WHITES = /^(\s|#.*|\/\*(.|\n)*?\*\/)*/;
+const STRING = /^"((?:[^"\\]|\\.)*)"/;
+const NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
 const WORD   = /^([^\s(),"]+)/;
 const LP     = /^([(])/;
 const RP     = /^\)/;
