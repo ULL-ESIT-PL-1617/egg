@@ -127,7 +127,17 @@ let topEnv = new Map;
 topEnv['true'] = true;
 topEnv['false'] = false;
 
-['+', '-', '*', '/', '==', '<', '>'].forEach(op => {
+[
+  '+', 
+  '-', 
+  '*', 
+  '/', 
+  '==', 
+  '<', 
+  '>',
+  '&&',
+  '||'
+].forEach(op => {
   topEnv[op] = new Function('a, b', `return a ${op} b;`);
 });
 
