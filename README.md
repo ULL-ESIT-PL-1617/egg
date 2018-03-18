@@ -2,6 +2,8 @@
 
 * [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
 * [Deploy at GitHub](https://ULL-ESIT-PL-1617.github.io/egg) (See branch gh-pages)
+* [As an npm module](https://www.npmjs.com/package/@crguezl/eloquentjsegg)
+* [gist to check the npm module](https://gist.github.com/crguezl/8dfcaa01a0377dead374bc35c462c29d)
 
 ### Debugging
 
@@ -31,11 +33,11 @@ WORD:   /[^\s(),"]+/
 
 ### AST
 
-* Expressions of type "value" represent literal strings or numbers. 
-Their value property contains the string or number value that they represent.
+* Expressions of type "VALUE" represent literal strings or numbers. 
+Their `value` property contains the string or number value that they represent.
 
-* Expressions of type "word" are used for identifiers (names). Such objects have a name property that holds the identifier’s name as a string. 
-* Finally, "apply" expressions represent applications. They have an operator property that refers to the expression that is being applied, and an args property that holds an array of argument expressions.
+* Expressions of type "WORD" are used for identifiers (names). Such objects have a `name` property that holds the identifier’s name as a string. 
+* Finally, "APPLY" expressions represent applications. They have an `operator` property that refers to the expression that is being applied, and an `args` property that holds an array of argument expressions.
 
 ```
 ast: VALUE{value: String | Number}
@@ -43,15 +45,28 @@ ast: VALUE{value: String | Number}
    | APPLY{operator: ast, args: [ ast ...]}
 ```
 
-The >(x, 5) part of the previous program would be represented like this:
+The `>(x, 5)` would be represented like this:
 
-```
+```bash
+[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ cat greater-x-5.egg 
+>(x,5)
+[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ ./eggc.js greater-x-5.egg 
+[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ cat greater-x-5.egg.evm 
 {
-  type: "apply",
-  operator: {type: "word", name: ">"},
-  args: [
-    {type: "word", name: "x"},
-    {type: "value", value: 5}
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": ">"
+  },
+  "args": [
+    {
+      "type": "word",
+      "name": "x"
+    },
+    {
+      "type": "value",
+      "value": 5
+    }
   ]
 }
 ```
