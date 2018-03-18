@@ -1,4 +1,4 @@
-var {run}  = require('eggvm');
+var {run}  = require('../eggvm.js');
 
 // Examples
 run(`do(define(sum, fun(array,
