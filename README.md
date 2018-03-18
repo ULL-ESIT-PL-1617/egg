@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/ULL-ESIT-PL-1617/egg.svg?branch=master)](https://travis-ci.org/ULL-ESIT-PL-1617/egg)
+[![npm version](https://badge.fury.io/js/%40crguezl%2Feloquentjsegg.svg)](https://badge.fury.io/js/%40crguezl%2Feloquentjsegg)
+
 ### Code from Eloquent JS. Chapter 11. Project: A Programming Language
 
 * [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
@@ -67,7 +70,5 @@ The `>(x, 5)` would be represented like this:
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
 
 ### Testing
-
-[![Build Status](https://travis-ci.org/ULL-ESIT-PL-1617/egg.svg?branch=master)](https://travis-ci.org/ULL-ESIT-PL-1617/egg)
 
 * [Apuntes de Travis](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/travis.html)
