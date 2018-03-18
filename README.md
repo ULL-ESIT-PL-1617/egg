@@ -65,6 +65,9 @@ The `>(x, 5)` would be represented like this:
 ### Examples
 
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
+
 ### Testing
 
-* [Travis](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/travis.html)
+[![Build Status](https://travis-ci.org/ULL-ESIT-PL-1617/egg.svg?branch=master)](https://travis-ci.org/ULL-ESIT-PL-1617/egg)
+
+* [Apuntes de Travis](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/travis.html)
