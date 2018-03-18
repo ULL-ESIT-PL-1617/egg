@@ -69,3 +69,33 @@ The `>(x, 5)` would be represented like this:
 
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
 
+### Executables
+
+* `egg` 
+    - Runs an egg program: `egg examples/two.egg` compiles the source onto the AST and interprets the AST
+* `eggc`
+    - Compiles the input program to produce a JSON containing the tree: `eggc examples/two.egg` produces the JSON file `examples/two.egg.evm`
+* `evm` 
+    - Egg Virtual Machine. Runs the tree: `evm examples/two.egg.evm`
+
+### Using it as a library
+
+```js
+> egg = require('@crguezl/eloquentjsegg')
+{ run: [Function: run],
+  runFromFile: [Function: runFromFile],
+  runFromEVM: [Function: runFromEVM],
+  parser: 
+   { getProgram: [Function: getProgram],
+     lex: [Function: lex],
+     parse: [Function: parse],
+     parseApply: [Function: parseApply],
+     parseExpression: [Function: parseExpression],
+     parseFromFile: [Function: parseFromFile],
+     setProgram: [Function: setProgram] } }
+> parser = egg.parser
+> parser.parse('def(x,4)')
+{ type: 'apply',
+  operator: { type: 'word', name: 'def' },
+  args: [ { type: 'word', name: 'x' }, { type: 'value', value: 4 } ] }
+```
