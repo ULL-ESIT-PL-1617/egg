@@ -1,4 +1,6 @@
 const inspect = require("util").inspect;
+let ins = (x) => inspect(x, {depth:null});
+let fs = require("fs");
 
 const WHITES = /^(\s|#.*|\/\*(.|\n)*?\*\/)*/;
 const STRING = /^"((?:[^"\\]|\\.)*)"/;
@@ -106,16 +108,28 @@ function parse(p) {
   setProgram(p);
   lex();
   var result = parseExpression();
-  console.log("result = ",inspect(result, {depth: null}));
+  //console.log("result = ",inspect(result, {depth: null}));
 
   return result;
 }
 
+function parseFromFile(fileName) {
+  try {
+    let program = fs.readFileSync(fileName, 'utf8');
+    let tree = parse(program);
+    console.log(JSON.stringify(tree, null, "  "));
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
-  setProgram,
   getProgram,
   lex,
-  parseExpression,
+  parse,
   parseApply,
-  parse
+  parseExpression,
+  parseFromFile,
+  setProgram,
 };
