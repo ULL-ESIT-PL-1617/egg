@@ -177,4 +177,19 @@ function runFromFile(fileName) {
   }
 }
 
-module.exports = {run, runFromFile};
+function runFromEVM(fileName) {
+  try {
+    let json = fs.readFileSync(fileName, 'utf8');
+    let tree = JSON.parse(json);
+    debugger;
+    let env = Object.create(topEnv);
+    // console.log(program);
+    // console.log(ins(tree));
+    return evaluate(tree, env);
+  }
+  catch (err) {
+    console.log(err);
+  }
+}
+
+module.exports = {run, runFromFile,runFromEVM};

@@ -5,7 +5,8 @@
   "main": "eggvm.js",
   "scripts": {
     "test": "mocha",
-    "start": "./eggc.js two.egg"
+    "start": "./egg.js two.egg",
+    "compile": "./eggc.js two.egg && ./evm.js two.egg.evm"
   },
   "bin": {
     "eggc": "./eggc.js"

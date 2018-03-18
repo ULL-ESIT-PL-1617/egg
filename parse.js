@@ -117,7 +117,8 @@ function parseFromFile(fileName) {
   try {
     let program = fs.readFileSync(fileName, 'utf8');
     let tree = parse(program);
-    console.log(JSON.stringify(tree, null, "  "));
+    let json = JSON.stringify(tree, null, "  ");
+    fs.writeFileSync(fileName+".evm", json);
   }
   catch (err) {
     console.log(err);
