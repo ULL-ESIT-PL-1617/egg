@@ -69,6 +69,3 @@ The `>(x, 5)` would be represented like this:
 
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
 
-### Testing
-
-* [Apuntes de Travis](https://casianorodriguezleon.gitbooks.io/ull-esit-1617/content/apuntes/pruebas/travis.html)
