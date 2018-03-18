@@ -5,14 +5,13 @@
   "main": "eggvm.js",
   "scripts": {
     "test": "mocha",
-    "start": "./egg.js examples/two.egg",
-    "compile": "./eggc.js examples/two.egg && ./evm.js examples/two.egg.evm"
+    "start": "./bin/egg.js examples/two.egg",
+    "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm"
   },
   "bin": {
-    "egg": "./egg.js",
-    "eggc": "./eggc.js",
-    "eggparse": "./eggparse.js",
-    "evm": "./evm.js"
+    "egg": "./bin/egg.js",
+    "eggc": "./bin/eggc.js",
+    "evm": "./bin/evm.js"
   },
   "repository": {
     "type": "git",
@@ -28,7 +27,7 @@
     "url": "https://github.com/ULL-ESIT-PL-1617/egg/issues"
   },
   "homepage": "https://github.com/ULL-ESIT-PL-1617/egg#readme",
-  "dependencies": {
+  "devDependencies": {
     "mocha": "*",
     "should": "*",
     "gulp-shell": "^0.6.3"
