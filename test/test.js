@@ -1,5 +1,5 @@
 var should = require("should");
-var parser = require('../parse.js');
+var parser = require('../lib/parse.js');
 
 /*
 describe("skipSpace", function() {

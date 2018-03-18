@@ -7,7 +7,7 @@ gulp.task('deb', shell.task('node --inspect-brk ./bin/egg.js examples/one.egg'))
 
 gulp.task('run', shell.task('node ./bin/egg.js examples/one.egg'));
 
-gulp.task("test", shell.task("./node_modules/mocha/bin/mocha --require should"));
+gulp.task("test", shell.task("NODE_PATH=lib ./node_modules/mocha/bin/mocha --require should"));
 
 gulp.task("test-package", shell.task(
 [
@@ -22,3 +22,7 @@ gulp.task("publish", shell.task([
   "npm version patch",
   "npm publish --access public"
 ]));
+
+gulp.task("clean", shell.task(
+  "rm -f *.evm **/*.evm"
+));
