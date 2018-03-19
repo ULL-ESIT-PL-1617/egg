@@ -42,10 +42,10 @@ ast: VALUE{value: String | Number}
 The `>(x, 5)` would be represented like this:
 
 ```bash
-[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ cat greater-x-5.egg 
+$ cat greater-x-5.egg 
 >(x,5)
-[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ ./eggc.js greater-x-5.egg 
-[~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/ejs-egg(master)]$ cat greater-x-5.egg.evm 
+$ ./eggc.js greater-x-5.egg 
+$ cat greater-x-5.egg.evm 
 {
   "type": "apply",
   "operator": {
@@ -72,7 +72,7 @@ The `>(x, 5)` would be represented like this:
 ### Instalation
 
 ```
-[/tmp/check-egg(master)]$ npm i -g @crguezl/eloquentjsegg
+$ npm i -g @crguezl/eloquentjsegg
 ...
 ```
 
@@ -82,7 +82,7 @@ The `>(x, 5)` would be represented like this:
     - Runs an egg program: `egg examples/two.egg` compiles the source onto the AST and interprets the AST
 
 ```
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg
+$ cat one.egg
 do(
   define(x, 4),
   define(setx, fun(val, 
@@ -92,7 +92,7 @@ do(
   setx(50),
   print(x)
 )
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ egg one.egg
+$ egg one.egg
 50
 ```
 
@@ -101,17 +101,17 @@ do(
 * `evm` 
     - Egg Virtual Machine. Runs the tree: `evm examples/two.egg.evm`
 ```
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ eggc one.egg
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ ls -ltr | tail -1
+$ eggc one.egg
+$ ls -ltr | tail -1
 -rw-r--r--  1 casiano  wheel  1656 19 mar 08:05 one.egg.evm
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ evm one.egg.evm 
+$ evm one.egg.evm 
 50
 ```
 
 Here is the tree in JSON format for the former `one.egg` program:
 
 ```
-[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg.evm
+$ cat one.egg.evm
 {
   "type": "apply",
   "operator": {
