@@ -69,18 +69,19 @@ The `>(x, 5)` would be represented like this:
 
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
 
-### Executables
-
-* `egg` 
-    - Runs an egg program: `egg examples/two.egg` compiles the source onto the AST and interprets the AST
-* `eggc`
-    - Compiles the input program to produce a JSON containing the tree: `eggc examples/two.egg` produces the JSON file `examples/two.egg.evm`
-* `evm` 
-    - Egg Virtual Machine. Runs the tree: `evm examples/two.egg.evm`
+### Instalation
 
 ```
 [/tmp/check-egg(master)]$ npm i -g @crguezl/eloquentjsegg
 ...
+```
+
+### Executables
+
+* `egg` 
+    - Runs an egg program: `egg examples/two.egg` compiles the source onto the AST and interprets the AST
+
+```
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg
 do(
   define(x, 4),
@@ -93,11 +94,23 @@ do(
 )
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ egg one.egg
 50
+```
+
+* `eggc`
+    - Compiles the input program to produce a JSON containing the tree: `eggc examples/two.egg` produces the JSON file `examples/two.egg.evm`
+* `evm` 
+    - Egg Virtual Machine. Runs the tree: `evm examples/two.egg.evm`
+```
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ eggc one.egg
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ ls -ltr | tail -1
 -rw-r--r--  1 casiano  wheel  1656 19 mar 08:05 one.egg.evm
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ evm one.egg.evm 
 50
+```
+
+Here is the tree in JSON format for the former `one.egg` program:
+
+```
 [/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg.evm
 {
   "type": "apply",

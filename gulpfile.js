@@ -19,7 +19,7 @@ gulp.task("test-package", shell.task(
 ]));
 
 gulp.task("publish", shell.task([
-  "git ci -am `npm -v '@crguezl/eloquentjsegg'`",
+  "git ci -am `npm -v '@crguezl/eloquentjsegg'`", // bug. It goes one behind
   "npm version patch",
   "npm publish --access public",
   "git push origin master"
