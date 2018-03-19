@@ -78,6 +78,123 @@ The `>(x, 5)` would be represented like this:
 * `evm` 
     - Egg Virtual Machine. Runs the tree: `evm examples/two.egg.evm`
 
+```
+[/tmp/check-egg(master)]$ npm i -g @crguezl/eloquentjsegg
+...
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg
+do(
+  define(x, 4),
+  define(setx, fun(val, 
+      set(x, val)
+    )
+  ),
+  setx(50),
+  print(x)
+)
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ egg one.egg
+50
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ eggc one.egg
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ ls -ltr | tail -1
+-rw-r--r--  1 casiano  wheel  1656 19 mar 08:05 one.egg.evm
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ evm one.egg.evm 
+50
+[/tmp/check-egg/node_modules/@crguezl/eloquentjsegg/examples(master)]$ cat one.egg.evm
+{
+  "type": "apply",
+  "operator": {
+    "type": "word",
+    "name": "do"
+  },
+  "args": [
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "define"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x"
+        },
+        {
+          "type": "value",
+          "value": 4
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "define"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "setx"
+        },
+        {
+          "type": "apply",
+          "operator": {
+            "type": "word",
+            "name": "fun"
+          },
+          "args": [
+            {
+              "type": "word",
+              "name": "val"
+            },
+            {
+              "type": "apply",
+              "operator": {
+                "type": "word",
+                "name": "set"
+              },
+              "args": [
+                {
+                  "type": "word",
+                  "name": "x"
+                },
+                {
+                  "type": "word",
+                  "name": "val"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "setx"
+      },
+      "args": [
+        {
+          "type": "value",
+          "value": 50
+        }
+      ]
+    },
+    {
+      "type": "apply",
+      "operator": {
+        "type": "word",
+        "name": "print"
+      },
+      "args": [
+        {
+          "type": "word",
+          "name": "x"
+        }
+      ]
+    }
+  ]
+}
+```
 ### Using it as a library
 
 ```js
