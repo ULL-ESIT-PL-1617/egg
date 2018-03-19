@@ -19,8 +19,10 @@ gulp.task("test-package", shell.task(
 ]));
 
 gulp.task("publish", shell.task([
+  "git ci -am `npm -v '@crguezl/eloquentjsegg'`",
   "npm version patch",
-  "npm publish --access public"
+  "npm publish --access public",
+  "git push origin master"
 ]));
 
 gulp.task("clean", shell.task(
