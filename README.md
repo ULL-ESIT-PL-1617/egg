@@ -11,15 +11,15 @@
 
 ```Yacc
 
-expression: STRING 
-          | NUMBER 
+expression: STRING
+          | NUMBER
           | WORD apply 
 
 apply: /* vacio */
-     | '(' expression (',' expression)* ')' apply
+     | '(' (expression ',')* expression? ')' apply
 
 
-WHITES = /^(\s|#.*|\/\*(.|\n)*?\*\/)*/;
+WHITES = /^(\s|[#;].*|\/\*(.|\n)*?\*\/)*/;
 STRING = /^"((?:[^"\\]|\\.)*)"/;
 NUMBER = /^([-+]?\d*\.?\d+([eE][-+]?\d+)?)/;
 WORD   = /^([^\s(),"]+)/;
