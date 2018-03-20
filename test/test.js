@@ -36,7 +36,7 @@ describe("parse", function() {
       operator: { type: 'word', name: 'word' },
       args: [ { type: 'word', name: 'a' } ] 
     };
-    parser.parseExpression('word ( a ) r ').should.eql(value);
+    parser.parseExpression('word ( a )').should.eql(value);
   })
   /*
   it("should parse apply with multiple arguments", function() {
