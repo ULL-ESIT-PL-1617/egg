@@ -1071,7 +1071,7 @@ function lex() {
 function parseExpression() {
   var expr;
 
-  debugger;
+  //debugger;
   if (lookahead.type == "STRING") {
     expr = {type: "value", value: lookahead.value};
     lex();
