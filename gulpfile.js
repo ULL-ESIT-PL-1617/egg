@@ -28,3 +28,8 @@ gulp.task("publish", shell.task([
 gulp.task("clean", shell.task(
   "rm -f *.evm **/*.evm"
 ));
+
+gulp.task("browserify", shell.task(
+  "browserify main.js -o browserify-main.js"
+));
+
