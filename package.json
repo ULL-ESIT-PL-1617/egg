@@ -1,0 +1,35 @@
+{
+  "name": "@crguezl/eloquentjsegg",
+  "version": "1.2.1",
+  "description": "* [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html) * [Deploy at GitHub](https://ULL-ESIT-PL-1617.github.io/egg)",
+  "main": "lib/eggvm.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "./bin/egg.js examples/two.egg",
+    "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm"
+  },
+  "bin": {
+    "egg": "./bin/egg.js",
+    "eggc": "./bin/eggc.js",
+    "evm": "./bin/evm.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ULL-ESIT-PL-1617/egg.git"
+  },
+  "keywords": [
+    "parsing",
+    "lisp"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ULL-ESIT-PL-1617/egg/issues"
+  },
+  "homepage": "https://github.com/ULL-ESIT-PL-1617/egg#readme",
+  "devDependencies": {
+    "gulp-shell": "^0.6.5",
+    "mocha": "^5.0.4",
+    "should": "^13.2.1"
+  }
+}

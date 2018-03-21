@@ -1,6 +1,7 @@
+const {run} = require('lib/eggvm.js');
 function main() {
 // Examples
-console.log(parse("+(a, 10)"));
+//console.log(parse("+(a, 10)"));
 
 var example1 = `
     do(define(x, 4),
@@ -8,7 +9,7 @@ var example1 = `
        setx(50),
        print(x))
 `;
-console.log(parse(example1));
+//console.log(parse(example1));
 run(example1);
 
 var example2 = `
