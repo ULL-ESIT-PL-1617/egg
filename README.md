@@ -38,6 +38,7 @@ produce una excepción
 4(5) ; Calling a number as a functionºº:
 ```
 produce una excepción
+
 2. Use [XRegExp](http://xregexp.com/) para sangrar y comentar las expresiones regulares
 3. Guarde en el objeto token el `offset` de comienzo, la línea de comienzo, etc
 4. Mejore los mensajes de error usando esta información
