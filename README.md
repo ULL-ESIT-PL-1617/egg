@@ -38,24 +38,41 @@
   ```
   produce una excepción
 
-2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/number-as-fun-err.egg`: 
-
-2. Use [XRegExp](http://xregexp.com/) para sangrar y comentar las expresiones regulares
-3. Guarde en el objeto token el `offset` de comienzo, la línea de comienzo, etc
-4. Mejore los mensajes de error usando esta información
-5. El analizador léxico actual destruye la cadena conteniendo el programa conforme la analiza.  Es posible  escribir una analizador léxico que recorra la cadena conteniendo el programa sin destruirla usando la opción `sticky`. Estudie esta mejora
-6. Mejore las pruebas, especialmente con programas que contienen errores
-6. Añada índices negativos (a la Ruby) para los arrays
-7. Añada mapas/hashes al lenguaje
-8. Haga que el ejecutable `egg` funcione como un bucle REPL cuando no se le proporciona un fichero de entrada
+2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/one.egg`: 
   ```lisp
-  [~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/egg/crguezl-egg(develo)]$ bin/egg.js
-  > def(x, array(1,2,array(3,4))) # x = [1,2,[3,4]]
-  [ 1, 2, [ 3, 4 ] ]
-  > [](x,2)                       # x[2]
-  [ 3, 4 ]                        # Pulsamos CTRL-D
-  > goodbye!
+  do(
+    define(x, 4),
+    define(setx, fun(val, 
+        set(x, val)
+      )
+    ),
+    setx(50),
+    print(x)
+  )
   ```
+  produce una salida en `stdout` de 50. 
+  * Utilice la técnica de mocking (test stubs are software components that simulate the behaviors of other software components (or modules) that a module undergoing tests depends on). Haga stubbing sobre `console.log`
+  * Algo como esto le puede ayudar:
+
+  ```js
+  describe("run", function() {
+    let originalLog;
+    beforeEach(function() {
+      originalLog = console.log;
+      console.log = function (...args) { 
+        ...
+      };
+    });
+    // test code here
+    afterEach(function() {
+      ...
+    });
+    it("testing one.egg with mocking of console.log", function() {
+      ...
+    }
+    }
+  ```
+
 9. Parta de este [repo](https://github.com/ULL-ESIT-PL-1617/egg)
 
 ### Recursos
