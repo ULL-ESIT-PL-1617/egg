@@ -52,7 +52,7 @@
   )
   ```
   produce una salida en `stdout` de 50. 
-  * Utilice la técnica de mocking (test stubs are software components that simulate the behaviors of other software components (or modules) that a module undergoing tests depends on). Haga stubbing sobre `console.log`
+  * Utilice la técnica de stubbing (test stubs are software components that simulate the behaviors of other software components (or modules) that a module undergoing tests depends on). Haga stubbing sobre `console.log`
   * Algo como esto le puede ayudar:
 
   ```js
