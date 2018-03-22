@@ -3,7 +3,7 @@
 
 ### Reto
 
-1. Modifique la versión actual del lenguaje egg para que acepte como entrada este programa en `examples/reto.egg`:
+1. Modifique la versión actual del lenguaje egg para que acepte como entrada este programa en [`examples/reto.egg`](https://github.com/ULL-ESIT-PL-1617/egg/blob/reto/examples/reto.egg):
   ```lisp
   do {
     def(sum,  ; function
