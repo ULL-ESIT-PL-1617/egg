@@ -1,0 +1,5 @@
+do( 
+  set(x,9),
+  print(x) # ReferenceError: Tried setting an undefined variable: x
+)
+

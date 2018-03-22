@@ -1,6 +1,66 @@
 [![Build Status](https://travis-ci.org/ULL-ESIT-PL-1617/egg.svg?branch=master)](https://travis-ci.org/ULL-ESIT-PL-1617/egg)
 [![npm version](https://badge.fury.io/js/%40crguezl%2Feloquentjsegg.svg)](https://badge.fury.io/js/%40crguezl%2Feloquentjsegg)
 
+### Reto
+
+1. Modifique la versión actual del lenguaje egg para que acepte como entrada este programa en `examples/reto.egg`:
+
+```lisp
+do(
+  def(sum,
+    ->(nums,       ; defines a function
+      do(
+         :=(i, 0), # Creates a local variable i and sets to 0
+         :=(s, 0), # Creates local var s and sets to 0
+         while(<(i, length(nums)),
+           do(=(s, +(s, [](nums, i))),
+              =(i, +(i, 1)) # assigns i+1 to i
+           )
+         ),
+         s
+      )
+   )
+ ),
+ print(+("sum(array(1, 2, 3)) := ", sum(array(1, 2, 3))))
+)
+```
+2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/scope-err.egg`:
+```lisp
+do( 
+  set(x,9),
+  print(x) # ReferenceError: Tried setting an undefined variable: x
+)
+```
+produce una excepción
+
+1. El reto se describe en la rama `reto`del repo en [ULL-ESIT-PL-1617/egg](https://github.com/ULL-ESIT-PL-1617/egg)
+2. Use [XRegExp](http://xregexp.com/) para sangrar y comentar las expresiones regulares
+3. Guarde en el objeto token el `offset` de comienzo, la línea de comienzo, etc
+4. Mejore los mensajes de error usando esta información
+5. El analizador léxico actual destruye la cadena conteniendo el programa conforme la analiza.  Es posible  escribir una analizador léxico que recorra la cadena conteniendo el programa sin destruirla usando la opción `sticky`. Estudie esta mejora
+6. Mejore las pruebas, especialmente con programas que contienen errores
+6. Añada índices negativos (a la Ruby) para los arrays
+7. Añada mapas/hashes al lenguaje
+8. Haga que el ejecutable `egg` funcione como un bucle REPL cuando no se le proporciona un fichero de entrada
+  ```lisp
+  [~/ull-pl1718-campus-virtual/tema3-analisis-sintactico/egg/crguezl-egg(develo)]$ bin/egg.js
+  > def(x, array(1,2,array(3,4))) # x = [1,2,[3,4]]
+  [ 1, 2, [ 3, 4 ] ]
+  > [](x,2)                       # x[2]
+  [ 3, 4 ]                        # Pulsamos CTRL-D
+  > goodbye!
+  ```
+9. Parta de este [repo](https://github.com/ULL-ESIT-PL-1617/egg)
+
+### Recursos
+
+* [Eloquent JS: Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
+* [El lenguaje egg: repo en GitHub](https://github.com/ULL-ESIT-PL-1617/egg)
+* [Repo interpreter-egg](https://github.com/ULL-ESIT-PL-1617/interpreter-egg)
+* [NodeJS Readline gist](https://gist.github.com/crguezl/430642e29a2b9293317320d0d1759387)
+* En el repo [ULL-ESIT-PL-1617/interpreter-egg](https://github.com/ULL-ESIT-PL-1617/interpreter-egg) se muestra como hacer un bucle REPL
+* [XRegExp](http://xregexp.com/)
+
 ### Code from Eloquent JS. Chapter 11. Project: A Programming Language
 
 * [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
