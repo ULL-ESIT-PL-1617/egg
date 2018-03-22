@@ -32,6 +32,7 @@ do(
 )
 ```
 produce una excepción
+
 2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/number-as-fun-err.egg`: 
 ```lisp
 4(5) ; Calling a number as a functionºº:
