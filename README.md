@@ -4,40 +4,39 @@
 ### Reto
 
 1. Modifique la versión actual del lenguaje egg para que acepte como entrada este programa en `examples/reto.egg`:
-
-```lisp
-do(
-  def(sum,
-    ->(nums,       ; defines a function
-      do(
-         :=(i, 0), # Creates a local variable i and sets to 0
-         :=(s, 0), # Creates local var s and sets to 0
-         while(<(i, length(nums)),
-           do(=(s, +(s, [](nums, i))),
-              =(i, +(i, 1)) # assigns i+1 to i
-           )
-         ),
-         s
-      )
-   )
- ),
- print(+("sum(array(1, 2, 3)) := ", sum(array(1, 2, 3))))
-)
-```
+	```lisp
+	do(
+		def(sum,
+			->(nums,       ; defines a function
+				do(
+					 :=(i, 0), # Creates a local variable i and sets to 0
+					 :=(s, 0), # Creates local var s and sets to 0
+					 while(<(i, length(nums)),
+						 do(=(s, +(s, [](nums, i))),
+								=(i, +(i, 1)) # assigns i+1 to i
+						 )
+					 ),
+					 s
+				)
+		 )
+	 ),
+	 print(+("sum(array(1, 2, 3)) := ", sum(array(1, 2, 3))))
+	)
+	```
 2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/scope-err.egg`:
-```lisp
-do( 
-  set(x,9),
-  print(x) # ReferenceError: Tried setting an undefined variable: x
-)
-```
-produce una excepción
+	```lisp
+	do( 
+		set(x,9),
+		print(x) # ReferenceError: Tried setting an undefined variable: x
+	)
+	```
+	produce una excepción
 
 2. Introduzca una prueba en `test/test.js` que demuestre que una entrada como la de `examples/number-as-fun-err.egg`: 
-```lisp
-4(5) ; Calling a number as a functionºº:
-```
-produce una excepción
+	```lisp
+	4(5) ; Calling a number as a functionºº:
+	```
+	produce una excepción
 
 2. Use [XRegExp](http://xregexp.com/) para sangrar y comentar las expresiones regulares
 3. Guarde en el objeto token el `offset` de comienzo, la línea de comienzo, etc
