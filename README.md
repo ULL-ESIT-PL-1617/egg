@@ -75,7 +75,7 @@
   ```
   Si quiere saber mas sobre stubbing estudie la librería [sinon](http://sinonjs.org/)
 
-9. Parta de este [repo](https://github.com/ULL-ESIT-PL-1617/egg)
+9. Aquí esta el [repo](https://github.com/ULL-ESIT-PL-1617/egg) con la versión pública de nuestr versión del lenguaje `egg`
 
 ### Recursos
 
