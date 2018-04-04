@@ -2,7 +2,7 @@ Los retos de la práctica 2 son los objetivos de la práctica 3 de egg
 
 ### Requisitos
 
-3. Modifique el `<-` o `element` para que pueda acceder a un array multidimensional como en el ejemplo que sigue
+1. Modifique el `<-` o `element` para que pueda acceder a un array multidimensional como en el ejemplo que sigue
   ```
     print(<-(x,2,1,1)) # x[2][1][1] is 5
   ```
