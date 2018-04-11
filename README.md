@@ -16,9 +16,7 @@ Los retos de la práctica 3 son los objetivos de la práctica 4 de egg
     print(x),
   )
   ```
-7. Modifique el intérprete para que se pueda acceder a los elementos de un array o map usando la notación corchete.
-  De nuevo intente que cuando el elemento indexado sea un objeto JavaScript sus métodos puedan ser llamados al menos con la 
-  sintáxis JS de corchetes como se ilustra en este ejemplo con el uso de `push`:
+  También debería funcionar un programa como este:
   ```
   $ cat examples/array-push-3.egg 
   do(
@@ -31,13 +29,6 @@ Los retos de la práctica 3 son los objetivos de la práctica 4 de egg
     print(z["push"](5)), # But this works!
     print(z),
   )
-  ```
-  Cuando lo ejecutamos obtenemos:
-  ```
-  $ bin/egg.js examples/array-push-3.egg 
-  4
-  5
-  [ 1, 4, 'a', 9, 5 ]
   ```
 10. Expanda el lenguaje para que permita el uso de librerías como en el ejemplo que sigue. Este es un ejemplo de cliente:
   ```
