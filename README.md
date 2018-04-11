@@ -30,7 +30,7 @@ Los retos de la práctica 3 son los objetivos de la práctica 4 de egg
     print(z),
   )
   ```
-10. Expanda el lenguaje para que permita el uso de librerías como en el ejemplo que sigue. Este es un ejemplo de cliente:
+2. Expanda el lenguaje para que permita el uso de librerías como en el ejemplo que sigue. Este es un ejemplo de cliente:
   ```
   $ cat examples/require/client.egg 
   do {
@@ -56,7 +56,7 @@ Los retos de la práctica 3 son los objetivos de la práctica 4 de egg
   Aquí tiene un enlace al [Repo correspondiente al vídeo](https://github.com/ULL-ESIT-MII-CA-1718/ejs-chapter10-modules/tree/master/require).
   * Memoize las librerías para que no se carguen dos veces
   * Procure añadir esta funcionalidad sin tocar el código principal usando el strategy pattern + registry pattern
-11. Actualmente tenemos que poner el nombre de un atributo o campo entre comillas. Así debemos escribir 
+3. Actualmente tenemos que poner el nombre de un atributo o campo entre comillas. Así debemos escribir 
 `map {"a": 4}` 
 y no podemos escribir 
 `map {a: 4}` 
@@ -66,10 +66,10 @@ Modifique el traductor de manera que que se pueda hacer esto y así podamos escr
 en vez de 
 `Object{"a":4, "b": ->(x, x+this.a)}` 
 sin que tener que poner dobles comillas en la cadena
-12. Expanda el traductor con un operador `...` que funcione como el equivalente de JavaScript y permita un número variable de argumentos en las llamadas a función
-13. Extienda el lenguaje con un bucle `for(counter, stop-expresion, increment-expresion, body)`
-13. Extienda el lenguaje con un bucle `map(element, array, body)`
-11. Añada pruebas, integre con [circleci](https://circleci.com/), publique el módulo npm
+4. Expanda el traductor con un operador `...` que funcione como el equivalente de JavaScript y permita un número variable de argumentos en las llamadas a función
+5. Extienda el lenguaje con un bucle `for(counter, stop-expresion, increment-expresion, body)`
+6. Extienda el lenguaje con un bucle `map(element, array, body)`
+6. Añada pruebas, integre con [circleci](https://circleci.com/), publique el módulo npm
 8. Añada objetos al lenguaje. Ejemplo de creación de un objeto con dos métodos:
   ```
   $ cat examples/objects.egg 
