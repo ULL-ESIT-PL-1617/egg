@@ -2,18 +2,7 @@ Los retos de la práctica 3 son los objetivos de la práctica 4 de egg
 
 ### Requisitos
 
-1. Modifique el traductor y la evaluación para que el punto (`m.a`) permita acceder a los campos y un programa como este funcione
-  ```
-  $ cat examples/mapmap.egg 
-  do {
-    :=(m, map("a": map("x": array[70, 100]), "b": array[2,3])),
-    print( m), # { a: { x: [ 70, 100 ] }, b: [ 2, 3 ] }
-    print(m.a),  #  { x: [ 70, 100 ] }
-    print(m.b),  # [ 2, 3 ]
-    print(m.a.x.1),  # 100
-    print(m.b.1),  # 3
-  }
-  ```
+1. Modifique el traductor y la evaluación para que el punto (`m.a`) permita acceder a los campos.
   Un problema que complica la traducción del operador punto es dar soporte a los métodos ya existentes 
   en JavaScript. 
   Sería bueno que un programa como este funcionara:
