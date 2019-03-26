@@ -9,6 +9,9 @@ gulp.task('run', shell.task('node ./bin/egg.js examples/one.egg'));
 
 gulp.task("test", shell.task("NODE_PATH=lib ./node_modules/mocha/bin/mocha --require should"));
 
+// Pushes the public version pl1617master
+gulp.task("publicpush", shell.task("git push pl1617 pl1617master:master"));
+
 gulp.task("test-package", shell.task(
 [
   "rm -fR /tmp/check-egg && "+
