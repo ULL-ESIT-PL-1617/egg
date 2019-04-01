@@ -1,0 +1,10 @@
+do(
+   define(x, 4),
+   define(setx, fun(val, 
+     set(x, val)
+     ) # end fun
+   ),  # end define setx
+   setx(50),
+   print(x)
+)
+
