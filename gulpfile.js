@@ -9,8 +9,12 @@ gulp.task('run', shell.task('node ./bin/egg.js examples/one.egg'));
 
 gulp.task("test", shell.task("NODE_PATH=lib ./node_modules/mocha/bin/mocha --require should"));
 
+// Remote pl1617	git@github.com:ULL-ESIT-PL-1617/egg.git contains public version of the repo
 // Pushes the public version pl1617master
 gulp.task("publicpush", shell.task("git push pl1617 pl1617master:master"));
+
+// Pushes pl18-19-march-public to pl1819
+gulp.task("push1819", shell.task("git push pl1819 pl1819-march-public:master"));
 
 gulp.task("test-package", shell.task(
 [
