@@ -28,8 +28,11 @@
   },
   "homepage": "https://github.com/ULL-ESIT-PL-1617/egg#readme",
   "devDependencies": {
-    "gulp-shell": "*",
-    "mocha": "*",
-    "should": "*"
+    "gulp-shell": "^0.8.0",
+    "mocha": "^7.1.1",
+    "should": "^13.2.3"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
