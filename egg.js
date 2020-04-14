@@ -207,6 +207,10 @@ function run() {
   return evaluate(parse(program), env);
 }
 
+const progCommandLine = process.argv[2];
+if (progCommandLine) {
+  return run(progCommandLine)
+}
 // Examples
 run("do(define(x, 4),",
     "   define(setx, fun(val, set(x, val))),",
