@@ -40,14 +40,15 @@ describe("parse", function() {
   })
   /*
   it("should parse apply with multiple arguments", function() {
-    var value = 
-      { expr: 
-        { type: 'apply',
-          operator: { type: 'word', name: 'word' },
-          args:  [ { type: 'word', name: 'a' },
-            { type: 'word', name: 'b' },
-            { type: 'word', name: 'c' } ] },
-        program: '' }
+    var value = {
+  type: 'apply',
+  operator: { type: 'word', name: 'word' },
+  args: [
+    { type: 'word', name: 'a' },
+    { type: 'word', name: 'b' },
+    { type: 'word', name: 'c' }
+  ]
+};
     parser.parseExpression('word (a, b, c)').should.eql(value);
   })
   it("should parse apply with no args", function() {
@@ -73,19 +74,23 @@ describe("parse", function() {
           program: '' };
     parser.parseExpression('word (a , b ) (c, d)').should.eql(value);
   })
+  */
   it("should have syntax error if not valid", function() {
     (function(){parser.parseExpression('')}).should.throw(Error);
     (function(){parser.parseExpression('a(,')}).should.throw(Error);
     (function(){parser.parseExpression('a( )(')}).should.throw(Error);
     (function(){parser.parseExpression('a(, )')}).should.throw(Error);
+    (function(){parser.parseExpression('+(')}).should.throw(Error);
   })
+  /*
   it("should have not expected , or ) if not correct separator", function() {
-    (function(){parser.parseExpression('word (a b)')}).should.throw(/Expected.*,.*or.*\)/i);
+    (function(){parser.parseExpression('word (a b)')}).should.throw(/Expected/i);
     (function(){parser.parseExpression('a(a')}).should.throw(/Expected/i);
   })
   it("parse should throw when there are rest", function(){
     (function() {parser.parse("+(a,b) e")}).should.throw(/unexpected text after program/i)
   })
+  */
   it("parse should work well otherwise", function(){
     var value = 
       { type: 'apply',
@@ -93,6 +98,5 @@ describe("parse", function() {
         args: [ { type: 'word', name: 'a' }, { type: 'word', name: 'b' } ] }
     parser.parse("+(a,b)").should.eql(value);
   })
-  */
 })
 
