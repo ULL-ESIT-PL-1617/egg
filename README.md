@@ -163,12 +163,6 @@ $ cat one.egg.evm
   operator: { type: 'word', name: 'def' },
   args: [ { type: 'word', name: 'x' }, { type: 'value', value: 4 } ] }
 ```
-### References
-
-
-* [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
-* [As an npm module](https://www.npmjs.com/package/@crguezl/eloquentjsegg)
-* [gist to check the npm module](https://gist.github.com/crguezl/8dfcaa01a0377dead374bc35c462c29d)
 
 ### Grammar
 
@@ -228,6 +222,12 @@ $ cat greater-x-5.egg.evm
 }
 ```
 
-### Examples
+### More Examples
 
 * [Directory with examples](https://github.com/ULL-ESIT-PL-1617/egg/tree/master/examples)
+
+### References
+
+* [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html)
+* [As an npm module](https://www.npmjs.com/package/@crguezl/eloquentjsegg)
+* [gist to check the npm module](https://gist.github.com/crguezl/8dfcaa01a0377dead374bc35c462c29d)
