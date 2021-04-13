@@ -7,7 +7,8 @@
     "test": "mocha",
     "start": "./bin/egg.js examples/two.egg",
     "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm",
-    "debug": "node --inspect-brk bin/egg.js examples/two.egg"
+    "debug": "node --inspect-brk bin/egg.js examples/two.egg",
+    "pushmaster": "git co master; git push pl1617 master # public version is in remote pl1617"
   },
   "bin": {
     "egg": "./bin/egg.js",
