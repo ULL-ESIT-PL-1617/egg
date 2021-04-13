@@ -6,7 +6,8 @@
   "scripts": {
     "test": "mocha",
     "start": "./bin/egg.js examples/two.egg",
-    "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm"
+    "compile": "./bin/eggc.js examples/two.egg && ./bin/evm.js examples/two.egg.evm",
+    "debug": "node --inspect-brk bin/egg.js examples/two.egg"
   },
   "bin": {
     "egg": "./bin/egg.js",
