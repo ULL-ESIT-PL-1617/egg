@@ -1,6 +1,6 @@
 {
   "name": "@crguezl/eloquentjsegg",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "http://eloquentjavascript.net/11_language.html and https://ULL-ESIT-PL-1617.github.io/egg",
   "main": "lib/eggvm.js",
   "scripts": {
