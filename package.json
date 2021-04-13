@@ -1,7 +1,7 @@
 {
   "name": "@crguezl/eloquentjsegg",
   "version": "1.2.3",
-  "description": "* [Eloquent JS. Chapter 11. Project: A Programming Language](http://eloquentjavascript.net/11_language.html) * [Deploy at GitHub](https://ULL-ESIT-PL-1617.github.io/egg)",
+  "description": "http://eloquentjavascript.net/11_language.html and https://ULL-ESIT-PL-1617.github.io/egg",
   "main": "lib/eggvm.js",
   "scripts": {
     "test": "mocha",
@@ -30,7 +30,6 @@
   },
   "homepage": "https://github.com/ULL-ESIT-PL-1617/egg#readme",
   "devDependencies": {
-    "gulp-shell": "^0.8.0",
     "mocha": "latest",
     "should": "latest"
   },
