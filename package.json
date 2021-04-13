@@ -20,10 +20,12 @@
     "url": "git+https://github.com/ULL-ESIT-PL-1617/egg.git"
   },
   "keywords": [
+    "ull",
+    "pl",
     "parsing",
     "lisp"
   ],
-  "author": "",
+  "author": "Casiano",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ULL-ESIT-PL-1617/egg/issues"
